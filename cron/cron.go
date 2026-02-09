@@ -140,6 +140,9 @@ func (j UsdtCheckJob) Run() {
 		case "USDT-BSC":
 			if BSC_USD.Start(v) {
 				go ProcessCallback(v)
+			} else if BSC_USD.Start_scan(v) {
+				go ProcessCallback(v)
+
 			}
 		case "USDT-ERC20":
 			if ERC20_USDT.Start(v) {
@@ -159,6 +162,8 @@ func (j UsdtCheckJob) Run() {
 			}
 		case "USDC-BSC":
 			if USDC_BSC.Start(v) {
+				go ProcessCallback(v)
+			} else if USDC_BSC.Start_scan(v) {
 				go ProcessCallback(v)
 			}
 		case "USDC-ArbitrumOne":
